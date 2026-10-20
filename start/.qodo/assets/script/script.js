@@ -13,35 +13,75 @@
    8. contaPerPriorita()
 */
 
-
-const listaTask = document.querySelector(`#lista-task`);
-
-function aggiungiTask(text, priorita) {
-
-  const li = document.createElement(`li`); //creo l'elemento li in js, ogni chiamata aggiunge un elemento nuovo, invece di riutilizzare lo stesso elemento.
-  const badge = document.createElement(`span`);//creo lo span in js
-
-  const erase = document.createElement(`button`); //creo il button elimina(per ora finto)
-
-  li.textContent = text; //al tag li attribuisco un contenuto stringa
-  badge.textContent = priorita //lo span(badge)
-  erase.textContent = "Elimina";
-
-  li.classList.add(`priorita-${priorita}`); //aggiunggo la classe priorità al tag li
-  badge.classList.add(`badge`);
-
-
-  listaTask.appendChild(li);
-  li.appendChild(badge);
-  li.appendChild(erase);
-}
+/*intercettare la lista(#lista-task)
+-creare array conb dentro oggetti con testo, data formattata(stringa), priorità
+*/
 
 
 
+// const listaTask = document.querySelector(`#lista-task`);
+// const contatore = document.querySelector(`#contatore `)
+
+// function aggiungiTask(text, priorita) {
+
+//   const li = document.createElement(`li`); //creo l'elemento li in js, ogni chiamata aggiunge un elemento nuovo, invece di riutilizzare lo stesso elemento
+
+//   const badge = document.createElement(`span`);//creo lo span in js
+
+//   const erase = document.createElement(`button`); //creo il button elimina(per ora finto)
+
+//   li.textContent = text; //al tag li attribuisco un contenuto stringa
+//   badge.textContent = priorita //lo span(badge)
+//   erase.textContent = "Elimina";
+
+//   li.classList.add(`priorita-${priorita}`); //aggiunggo la classe priorità al tag li
+//   badge.classList.add(`badge`);
+//   erase.getAttribute
 
 
-aggiungiTask("Pagare le bollette", "alta");
-aggiungiTask("Studiare JavaScript", "media");
-aggiungiTask("Comprare il pane", "bassa");
-aggiungiTask("Chiamare il dentista", "alta");
-aggiungiTask("Riposarsi", "bassa");
+//   listaTask.appendChild(li);
+//   li.appendChild(badge);
+//   li.appendChild(erase);
+// }
+
+
+
+
+
+// aggiungiTask("Pagare le bollette", "alta");
+// aggiungiTask("Studiare JavaScript", "media");
+// aggiungiTask("Comprare il pane", "bassa");
+// aggiungiTask("Chiamare il dentista", "alta");
+// aggiungiTask("Riposarsi", "bassa");
+
+
+
+
+
+const mytask = [
+  {
+    titoloTask: "Pagare le bollette",
+    priorita: "alta",
+    data: new Date,
+  },
+  {
+    titoloTask: "Pagare le bollette",
+    priorita: "alta",
+    data: new Date,
+  },
+  {
+    titoloTask: "Pagare le bollette",
+    priorita: "alta",
+    data: new Date,
+  },
+  {
+    titoloTask: "Pagare le bollette",
+    priorita: "alta",
+    data: new Date,
+  },
+  {
+    titoloTask: "Pagare le bollette",
+    priorita: "alta",
+    data: new Date,
+  },
+]
