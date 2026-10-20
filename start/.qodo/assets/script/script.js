@@ -14,8 +14,80 @@
 */
 
 /*intercettare la lista(#lista-task)
--creare array conb dentro oggetti con testo, data formattata(stringa), priorità
-*/
+-creare array con dentro oggetti con testo, data formattata(stringa), priorità(alta-media-bassa)
+-scrivere glòi oggetti nella lista
+-intercettare lo span con il contatore
+-sostituire il contenuto dello span col numero degli oggetti nell'array*/
+
+
+const mytask = [
+  {
+    titoloTask: "Pagare le bollette",
+    priorita: "alta",
+    data: new Date,
+  },
+  {
+    titoloTask: "Studiare JavaScript",
+    priorita: "media",
+    data: new Date,
+  },
+  {
+    titoloTask: "Comporare il pane",
+    priorita: "bassa",
+    data: new Date,
+  },
+  {
+    titoloTask: "Chiamare il dentista",
+    priorita: "alta",
+    data: new Date,
+  },
+  {
+    titoloTask: "Riposarsi",
+    priorita: "bassa",
+    data: new Date,
+  },
+]
+
+const listaTask = document.querySelector(`#lista-task`);
+const contatore = document.querySelector(`#contatore `);
+
+function aggiungiTask(){
+  mytask.forEach(task => {
+    const li = document.createElement(`li`);
+    const badge = document.createElement(`span`);
+    const data = document.createElement(`span`);
+    const erase = document.createElement(`button`);
+
+    li.classList.add(`priorita-${task.priorita}`)
+    badge.classList.add(`badge`)
+    data.classList.add(`data`,`divData`)
+    erase.classList.add(`button`)
+
+
+    li.textContent = task.titoloTask;
+    badge.textContent = task.priorita;
+    data.textContent = task.data.toLocaleDateString(`it-IT`);
+    erase.textContent = "Elimina";
+
+    listaTask.appendChild(li);
+    li.appendChild(badge);
+    li.appendChild(data);
+    data.appendChild(erase);
+
+    listaTask.appendChild(li);
+
+  });
+}
+
+function contaPerPriorita() {
+  contatore.textContent = mytask.length;
+}
+
+aggiungiTask();
+contaPerPriorita();
+
+
+
 
 
 
@@ -49,39 +121,9 @@
 
 
 // aggiungiTask("Pagare le bollette", "alta");
+
+
 // aggiungiTask("Studiare JavaScript", "media");
 // aggiungiTask("Comprare il pane", "bassa");
 // aggiungiTask("Chiamare il dentista", "alta");
 // aggiungiTask("Riposarsi", "bassa");
-
-
-
-
-
-const mytask = [
-  {
-    titoloTask: "Pagare le bollette",
-    priorita: "alta",
-    data: new Date,
-  },
-  {
-    titoloTask: "Pagare le bollette",
-    priorita: "alta",
-    data: new Date,
-  },
-  {
-    titoloTask: "Pagare le bollette",
-    priorita: "alta",
-    data: new Date,
-  },
-  {
-    titoloTask: "Pagare le bollette",
-    priorita: "alta",
-    data: new Date,
-  },
-  {
-    titoloTask: "Pagare le bollette",
-    priorita: "alta",
-    data: new Date,
-  },
-]
