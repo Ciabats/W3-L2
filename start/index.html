@@ -1,25 +1,38 @@
 <!doctype html>
 <html lang="it">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Task Manager</title>
-		<link rel="stylesheet" href=".qodo\assets\style\style.css" />
-		<script src=".qodo\assets\script\script.js" defer></script>
-	</head>
-	<body>
-		<h1 id="titolo">I miei task</h1>
 
-		<div class="aggiunta">
-			<input id="nuovo-task" placeholder="Cosa devi fare?" />
+<head>
+	<meta charset="UTF-8" />
+	<title>Task Manager</title>
+	<link rel="stylesheet" href=".qodo\assets\style\style.css" />
+	<script src=".qodo\assets\script\script.js" defer></script>
+</head>
+
+<body>
+	<h1 id="titolo">I miei task</h1>
+
+	<div class="aggiunta">
+		<form action="post">
+			<label for="nuovo-task">Aggiungere task da completare</label>
+			<input id="nuovo-task" type="text" placeholder="Cosa devi fare?" />
+			<label for="priorita"></label>
+			<select>
+				<option value="">alta</option>
+				<option value="">media</option>
+				<option value="">bassa</option>
+			</select>
+
 			<button id="bottone-aggiungi">Aggiungi</button>
-		</div>
+		</form>
+	</div>
 
-		<ul id="lista-task">
+	<ul id="lista-task">
 
-		</ul>
+	</ul>
 
-		<p>Totale: <span id="contatore">0</span></p>
+	<p>Totale: <span id="contatore">0</span></p>
 
-		
-	</body>
+
+</body>
+
 </html>

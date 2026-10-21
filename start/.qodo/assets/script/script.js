@@ -50,6 +50,14 @@ const mytask = [
 
 const listaTask = document.querySelector(`#lista-task`);
 const contatore = document.querySelector(`#contatore `);
+const inputTask = document.querySelector(`#nuovo-task`);
+const aggiugngi = document.querySelector(`#bottone-aggiungi`);
+
+/* const taskData = {
+  titoloTask: "",
+  priorita: "",
+  data: "";
+} */
 
 function aggiungiTask(){
   mytask.forEach(task => {
@@ -87,10 +95,30 @@ aggiungiTask();
 contaPerPriorita();
 
 
+inputTask.addEventListener(`change`, (e) => {
+  console.log(inputTask.value);
+})
+
+// aggiugngi.addEventListener(`click`, (e) => {
+//   e.preventDefault();
+//   if (valid) {
+    
+//   }
+//   console.log(`Task aggiunta alla lista`)
+  //taskData.titoloTask = inputTask.value;
+  //taskDats.piorita = inputTask.value
+// })
+
+
+
+function createTask(params) {
+  
+}
 
 
 
 
+__________________________________________________________________________________________________________________________________________
 // const listaTask = document.querySelector(`#lista-task`);
 // const contatore = document.querySelector(`#contatore `)
 
