@@ -22,13 +22,14 @@ h1 {
 
 input {
 	flex: 1;
-	padding: 10px;
+	padding: 5px;
 	font-size: 16px;
 	font-family: inherit;
 }
 
 button {
-	padding: 10px 20px;
+	padding: 5px 10px;
+	font-size: 16px;
 	cursor: pointer;
 	font-family: inherit;
 }
@@ -43,12 +44,29 @@ li {
 	border-bottom: 1px solid #ddd;
 }
 
+.flag{
+	float: left;
+	margin-top: 13px;
+}
+
+.flagged{
+	text-decoration: line-through;
+	color: rgb(145, 142, 142);
+}
+
 /* Aggiungi qui le tue regole CSS per:
    - .priorita-alta / .priorita-media / .priorita-bassa
    - .badge (l'etichetta della priorità dentro il task)
    - .data (la data di creazione)
    - .evidenziato (sfondo giallo, bordo)
 */
+
+#priorita-task{
+	flex: 1;
+	padding: 5px;
+	font-size: 16px;
+	font-family: inherit;
+}
 
 .priorita-alta {
 	background-color: #FDE2E2;

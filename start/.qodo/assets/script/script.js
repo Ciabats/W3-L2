@@ -48,10 +48,14 @@ const mytask = [
   },
 ]
 
+
+
 const listaTask = document.querySelector(`#lista-task`);
 const contatore = document.querySelector(`#contatore `);
-const inputTask = document.querySelector(`#nuovo-task`);
-const aggiugngi = document.querySelector(`#bottone-aggiungi`);
+const taskForm = document.querySelector(`#task-form`);
+const prioritaTask = document.querySelector(`#priorita-task`);
+const newTask = document.querySelector(`#nuovo-task`);
+const aggiungi = document.querySelector(`#bottone-aggiungi`);
 
 /* const taskData = {
   titoloTask: "",
@@ -59,66 +63,102 @@ const aggiugngi = document.querySelector(`#bottone-aggiungi`);
   data: "";
 } */
 
-function aggiungiTask(){
-  mytask.forEach(task => {
+
+function aggiungiTask() {
+  mytask.forEach((task, index) => {
     const li = document.createElement(`li`);
     const badge = document.createElement(`span`);
     const data = document.createElement(`span`);
     const erase = document.createElement(`button`);
+    const flag = document.createElement(`input`);
 
-    li.classList.add(`priorita-${task.priorita}`)
-    badge.classList.add(`badge`)
-    data.classList.add(`data`,`divData`)
-    erase.classList.add(`button`)
+    li.classList.add(`priorita-${task.priorita}`);
+    badge.classList.add(`badge`);
+    data.classList.add(`data`, `divData`);
 
+    erase.setAttribute(`type`, `button`)
+    erase.setAttribute(`id`, index + 1)
+    erase.classList.add(`button`);
+
+
+    flag.setAttribute(`type`, `checkbox`);
+    flag.classList.add(`flag`)
+
+    // Event listener sul cambio di stato della checkbox
+    flag.addEventListener(`change`, () => {
+      // Toggle della classe sulla task (li) per barrarla tramite la classe .flagged in CSS
+      li.classList.toggle(`flagged`);
+      // Toggle di un'eventuale classe anche sulla checkbox stessassss
+    });
 
     li.textContent = task.titoloTask;
     badge.textContent = task.priorita;
     data.textContent = task.data.toLocaleDateString(`it-IT`);
     erase.textContent = "Elimina";
 
+
     listaTask.appendChild(li);
     li.appendChild(badge);
     li.appendChild(data);
     data.appendChild(erase);
-
+    listaTask.appendChild(flag);
     listaTask.appendChild(li);
-
+  
   });
 }
+
+aggiungiTask();
 
 function contaPerPriorita() {
   contatore.textContent = mytask.length;
 }
-
-aggiungiTask();
 contaPerPriorita();
 
 
-inputTask.addEventListener(`change`, (e) => {
-  console.log(inputTask.value);
+
+
+taskForm.addEventListener(`submit`, (e) => {
+  e.preventDefault();
+  let titoloTask = newTask.value;
+  let priorita = prioritaTask.value;
+
+  mytask.push(titoloTask);
+  mytask.push(priorita);
+  aggiungiTask();
+  
 })
+
+
+
+listaTask.addEventListener(`click`, (e) => {
+  e.preventDefault();
+  if (e.target.type === `button`) {
+    mytask.splice(e.target.id-1, 1);
+    aggiungiTask();
+  }
+})
+
+
+
+
 
 // aggiugngi.addEventListener(`click`, (e) => {
 //   e.preventDefault();
 //   if (valid) {
-    
+
 //   }
 //   console.log(`Task aggiunta alla lista`)
-  //taskData.titoloTask = inputTask.value;
-  //taskDats.piorita = inputTask.value
+//taskData.titoloTask = inputTask.value;
+//taskDats.piorita = inputTask.value
 // })
 
 
 
 function createTask(params) {
-  
+
 }
 
 
-
-
-__________________________________________________________________________________________________________________________________________
 // const listaTask = document.querySelector(`#lista-task`);
 // const contatore = document.querySelector(`#contatore `)
 

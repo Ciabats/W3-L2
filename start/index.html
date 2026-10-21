@@ -12,17 +12,16 @@
 	<h1 id="titolo">I miei task</h1>
 
 	<div class="aggiunta">
-		<form action="post">
-			<label for="nuovo-task">Aggiungere task da completare</label>
-			<input id="nuovo-task" type="text" placeholder="Cosa devi fare?" />
+		<form id="task-form">
+			<label for="nuovo-task">Aggiungere task</label>
+			<input id="nuovo-task" type="text" placeholder="Cosa devi fare?" required />
 			<label for="priorita"></label>
-			<select>
-				<option value="">alta</option>
-				<option value="">media</option>
-				<option value="">bassa</option>
+			<select id="priorita-task" required>
+				<option value="A">alta</option>
+				<option value="M">media</option>
+				<option value="B">bassa</option>
 			</select>
-
-			<button id="bottone-aggiungi">Aggiungi</button>
+				<button id="bottone-aggiungi" type="button">Aggiungi</button>
 		</form>
 	</div>
 
